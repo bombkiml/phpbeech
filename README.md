@@ -19,4 +19,4 @@ E-mail nattapat.jquery@gmail.com
 Facebook : [bombkiml](https://www.facebook.com/bombkiml)
 #
 ## # License
-> PHP Beech framework is open-sourced software licensed under the MIT license.
+> PHP Beech framework is open-sourced software licensed under the [MIT license.](https://opensource.org/licenses/MIT)
