@@ -3,7 +3,7 @@
 ##### #Make it by yourself
 #
 #
-# # Server Requirements
+## # Server Requirements
     PHP >= 5.3.0
 #
 ## # Instraling Beech
