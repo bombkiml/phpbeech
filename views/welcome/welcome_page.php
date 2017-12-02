@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='<?php echo BASE_URL; ?>public/images/beech_16.png' rel='shortcut icon'/>
+        <link href='public/images/beech_16.png' rel='shortcut icon'/>
         <title><?php echo @$this->title; ?></title>
 
         <!-- Fonts -->
@@ -49,7 +49,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title text-muted">
-                    <img src='<?php echo IMG; ?>beech_256.png' width='152' />
+                    <img src='public/images/beech_256.png' width='152' />
                     <h4>Welcome to PHP beech framework - alpha</h3>
                     <i>#Make it by yourself</i>
                 </div>
