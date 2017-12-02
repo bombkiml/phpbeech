@@ -1,0 +1,24 @@
+{
+    "name": "bombkiml/phpbeech",
+    "description": "PHP Beech Framework.",
+    "keywords": ["framework", "beech", "phpbeech", "php-framework", "easy-framework"],
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "bombkiml",
+            "email": "nattapat.jquery@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "twbs/bootstrap": "4.0.0-beta.2"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+    
+}
