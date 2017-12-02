@@ -1,6 +1,3 @@
 
-
-
-	
-	</body>
+</body>
 </html>
