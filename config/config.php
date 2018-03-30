@@ -4,7 +4,7 @@
  * base path config 
  *
  */
-define(BASE_URL, 'http://localhost/beech/'); // your project name
+define(BASE_URL, 'http://localhost/phpbeech/'); // your project name
 
 define(LINK, BASE_URL . 'index.php/'); // default index.php (exam. http://location/index.php/...)
 
