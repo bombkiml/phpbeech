@@ -7,18 +7,17 @@ class System {
 	
 	public function __construct(){
 		$this->get_url();
-		//print_r($this->_url);
 		if(empty($this->_url[0])){
 			$this->default_crl();
 		}else{
 			$this->load_file();
 			$this->call_method();
 		}
-        define(BEECHv, 'xxx');
 	}
 	
 	private function get_url(){
-		$url = $_SERVER['PATH_INFO'];
+		// $url = $_SERVER['PATH_INFO']; // beech = 0.1
+		@$url = $_GET['url']; // beech >= 1.0
 		$url = trim($url, '/');
 		$this->_url = explode('/', $url);
 	}
