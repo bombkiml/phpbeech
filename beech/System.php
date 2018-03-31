@@ -19,7 +19,15 @@ class System {
 		// $url = $_SERVER['PATH_INFO']; // beech = 0.1
 		@$url = $_GET['url']; // beech >= 1.0
 		$url = trim($url, '/');
-		$this->_url = explode('/', $url);
+		$url =  explode('/', $url);
+		$url[0] .= 'Controller';
+		$this->_url = $url;		
+		/**
+		 * @url[0] : class
+		 * @url[1] : method
+		 * @url[2] : params
+		 * ...     : params
+		 */
 	}
 	
 	private function load_file(){
@@ -72,15 +80,15 @@ class System {
 	}
 	
 	private function default_crl(){
-		$file = PATH_C . DEFAULT_CRL . EXT;
+		$file = PATH_C . DEFAULT_CRL . 'Controller' . EXT;
 		if(file_exists($file)){
 			require $file;
-			$cs = DEFAULT_CRL;
+			$cs = DEFAULT_CRL . 'Controller';
 			$this->_crl = new $cs();
 			$this->_crl->load_model($cs); // load model
 			$this->_crl->index();
 		}else{
-			$this->class_error(DEFAULT_CRL);
+			$this->class_error(DEFAULT_CRL . 'Controller');
 		}
 	}
 	
