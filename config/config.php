@@ -12,7 +12,6 @@ define("PJ_NAME", "phpbeech");
  */
 define("HOST_NAME", "http://localhost");
 
-
 /**
  * BASE URL 
  * 
@@ -25,13 +24,11 @@ define("BASE_URL", HOST_NAME ."/". PJ_NAME ."/");
  */
 define("IMG", BASE_URL . "public/images/");
 
-
 /**
  * Default controller config 
  *
  */
 define("DEFAULT_CRL", "welcome");
-
 
 /**
  * mysql database config
