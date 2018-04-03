@@ -2,11 +2,11 @@
 
 class WelcomeController extends Controller {
 
-	public function __construct(){
+	public function __construct() {
 		parent::__construct();
 	}
 	
-	public function index(){
+	public function index() {
 		$this->view->title = 'Welcome to Beech Framework';
 		$this->view->render('welcome/welcome_page');
 	}
