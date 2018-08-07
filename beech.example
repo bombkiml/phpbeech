@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php 
+
+if(file_exists(__DIR__.'.\vendor')) {
+    require __DIR__.'.\vendor\autoload.php';
+} else {
+    require __DIR__.'.\src\beechcli.php';
+}

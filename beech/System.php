@@ -7,6 +7,7 @@ class System {
 	
 	public function __construct() {
 		$this->get_url();
+		print_r($this->_url);
 		if (empty($this->_url[0])) {
 			$this->default_crl();
 		} else {
@@ -16,7 +17,7 @@ class System {
 	}
 	
 	private function get_url() {
-		@$url = $_GET['url'];
+		@$url = $_SERVER['REQUEST_URI']; // == PJ_NAME . 'Controller') ? $_GET['url'] : $_SERVER['REQUEST_URI'];
 		$url = trim($url, '/');
 		$url =  explode('/', $url);
 		$url[0] .= ($url[0]) ? 'Controller' : DEFAULT_CRL .'Controller';
