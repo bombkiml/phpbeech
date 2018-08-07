@@ -2,10 +2,10 @@
 
 class View {
 
-	 // for system only. This function pointer view to leaves/error path.
+	 // for system only. This function pointer view to .\error path.
     public function error($src) {
         $this->path = $src;
-        require('leaves/'.$src.EXT);    
+        require($src.EXT);    
     }
 
     // for class view only
@@ -13,7 +13,7 @@ class View {
         $this->title = 'View not found !';
         $this->path = $src;
         $this->from = $from;
-        require('leaves/error/view_error'.EXT);
+        require('error/view_error'.EXT);
         exit;
     }
     
