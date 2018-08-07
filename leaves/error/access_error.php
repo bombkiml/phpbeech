@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset='utf-8'/>
-	<link href='<?php echo BASE_URL; ?>public/images/beech_16.png' rel='shortcut icon'/>
+	<link href='https://image.ibb.co/iqeBBK/beech_16.png' rel='shortcut icon'/>
 	<title><?php echo @$this->title; ?></title>
 </head>
 <body>
@@ -26,8 +26,8 @@ ol{height: 6px;}
 h3{height:6px;}
 </style>
 <div id='content'>
-    <h1><a href='http://www.facebook.com/bombkiml' target='_blank' title='Contact to Owner of PHP Beech Framework'><img src='<?php echo BASE_URL; ?>/public/images/beech_64.png' width='64px' /> <label style='position:absolute;top:44px;margin-left:5px;'>PHP Beech framework</label></a></h1>
-	<div style='margin-left: 35px'><img src='<?php echo BASE_URL; ?>/public/images/stop_64.png' width='64px' /></div>
+    <h1><a href='https://github.com/bombkiml/phpbeech/issues' target='_blank' title='Contact to Owner of PHP Beech Framework'><img src='https://image.ibb.co/gTcRdz/beech_64.png' width='64px' /> <label style='position:absolute;top:44px;margin-left:5px;'>PHP Beech framework</label></a></h1>
+	<div style='margin-left: 35px'><img src='https://image.ibb.co/b4jWdz/warning_32.png' width='64px' /></div>
     <h2>Access Denied !</h2>
     <?php $base = trim(BASE_URL, '/'); $base = explode('/', $base); $my_site = end($base); ?>        
     

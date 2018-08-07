@@ -6,9 +6,9 @@ class Database {
 	private $_sql = null;
 		
 	public function __construct(){
-		$conn = mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('Connect failed.');
-		mysql_select_db(DB_NAME, $conn);
-		mysql_query("SET NAMES UTF8");
+		#$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_PORT) or die('Connect failed.');
+		#mysqli_select_db(DB_NAME, $conn);
+		#mysqli_query("SET NAMES UTF8");
 	}
 	
 	private function sql_command($sql){

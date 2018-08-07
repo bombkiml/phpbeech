@@ -8,7 +8,7 @@ class ExamController extends Controller {
 	
 	public function index() {
 		$this->view->title = '';
-		$this->view->template('file/page');
+		$this->view->template('src/file');
 		
 		/**
 		 * more method
