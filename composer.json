@@ -11,9 +11,6 @@
         }
     ],
     "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('beech') || copy('beech.example', 'beech');\""
-        ],
         "post-create-project-cmd": [
             "@php beech init"
         ]
