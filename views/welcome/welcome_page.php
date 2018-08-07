@@ -49,7 +49,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title text-muted">
-                    <img src='public/images/beech_256.png' width='152' />
+                    <img src='https://image.ibb.co/b7zQMK/beech_256.png' width='152' />
                     <h4>Welcome to PHP beech framework - alpha</h3>
                     <i>#Make it by yourself</i>
                 </div>

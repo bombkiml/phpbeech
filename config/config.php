@@ -10,7 +10,7 @@ define("PJ_NAME", "phpbeech");
  * Host name config ** default "http://localhost"
  * 
  */
-define("HOST_NAME", "http://localhost");
+define("HOST_NAME", "http://localhost:8071");
 
 /**
  * BASE URL 
