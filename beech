@@ -2,5 +2,5 @@
 <?php 
 
 if(file_exists(__DIR__.'.\vendor')) {
-    require __DIR__.'.\vendor\autoload.php';
+    require __DIR__.'.\vvendor\bombkiml\beech-cli\src\console.php';
 }
