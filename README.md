@@ -1,4 +1,4 @@
-[![N|Solid](https://image.ibb.co/bzOJrK/logo_no_BG1x.png)](https://github.com/bombkiml/phpbeech)
+[![N|Solid](https://image.ibb.co/jQk3Qe/beechLTS.png)](https://github.com/bombkiml/phpbeech)
 # PHP Beech framework
 ##### #Make it by yourself
 #
