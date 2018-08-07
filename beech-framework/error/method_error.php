@@ -41,7 +41,7 @@ h3{height:6px;}
             <ol>}</ol>
             <?php
             for($i=1;$i<=count($this->param);$i++){
-                $pars .= ', $param'.$i;
+                @$pars .= ', $param'.$i;
             }
             $pa = trim(@$pars, ' ,');
             ?>
