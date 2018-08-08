@@ -21,7 +21,7 @@ you may use the `` $ beech serve `` command. This command will start a developme
     
 ## # Defining Controllers
 > Below is an example of a basic controller class. Note that the controller extends the base controller class.
-```python
+```php
     <?php
 
     class FooController extends Controller {
