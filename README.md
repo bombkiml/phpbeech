@@ -122,7 +122,10 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
     }
 ```
 ## # Database
-> The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application by using 3 step.
+> The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application.
+
+#### # Retrieving Results
+> You may retrieving all data by use the method preparing by 3 step like this:
 >
 > One: Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
 ```php
@@ -151,7 +154,7 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
     // result: int
 
 ```
-### # Retrieving Results
+
 
 
 ## # Beech-cli console
