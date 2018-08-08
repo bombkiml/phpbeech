@@ -1,6 +1,7 @@
-[![N|Solid](https://image.ibb.co/gfbtQe/beech_LTSx1.png)](https://github.com/bombkiml/phpbeech)
 # PHP Beech framework (LTS)
 ##### #Make it by yourself
+
+[![N|Solid](https://image.ibb.co/gfbtQe/beech_LTSx1.png)](https://github.com/bombkiml/phpbeech)
 #
 ## # Environment Requirements
     PHP >= 5.3.0
