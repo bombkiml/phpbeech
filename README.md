@@ -21,7 +21,7 @@ you may use the `` $ beech serve `` command. This command will start a developme
     
 ## # Defining Controllers
 > Below is an example of a basic controller class. Note that the controller extends the base controller class.
-
+```python
     <?php
 
     class FooController extends Controller {
@@ -62,11 +62,11 @@ you may use the `` $ beech serve `` command. This command will start a developme
         }
         
     }
-    
+```
 ## # Creating Views
 > Below is an example of a basic views contain the HTML served by your application and separate your controller. Views are stored in the views/ directory. A simple view might look something like this:
 
-    <!-- View stored in `` views/foo/foo.view.php `` -->
+    <!-- View stored in `views/foo/foo.view.php` -->
 
     <html>
         <head>
