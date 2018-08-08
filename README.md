@@ -13,6 +13,13 @@
 
     $ composer create-project bombkiml/phpbeech {yourProjectName}
 #
+## #Local development server
+If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, 
+you may use the `` $ beech serve `` command. This command will start a development server at `` http://localhost:8000: ``
+
+    $ php beech serve
+    
+#
 ## # Development
 > Want to contribute or join for Great Job!. You can contact to me via
   - GitHub: [bombkiml/phpbeech - issues](https://github.com/bombkiml/phpbeech/issues)
