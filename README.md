@@ -121,7 +121,40 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
          }
     }
 ```
-## # Beech console
+## # Database
+> The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application by using 3 step.
+>
+> One: Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
+```php
+    $sth = $this->db->prepare("SELECT * FROM foo");
+```
+> Two: Execute statement, After specify statement you must execute your sql statement by using object ``` $sth ``` as above:
+```php
+    $sth->execute();
+```
+> Finalize: Response data, Response data using by old object ``` $sth ``` for return your result data. So, Have a response are available for using:
+```php
+        
+    $sth->fetch_all();
+    // result: array
+    
+    $sth->fetch_assoc();
+    // result: array
+    
+    $sth->fetch_array();
+    // result: array
+    
+    $sth->fetch_object();
+    // result: object
+    
+    $sth->num_rows();
+    // result: int
+
+```
+### # Retrieving Results
+
+
+## # Beech-cli console
 > [Document PHP beech command line interface (CLI)](https://github.com/bombkiml/beech-cli)
 
 ## # Development
