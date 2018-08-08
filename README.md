@@ -65,22 +65,22 @@ you may use the `` $ beech serve `` command. This command will start a developme
 ```
 ## # Creating Views
 > Below is an example of a basic views contain the HTML served by your application and separate your controller. Views are stored in the views/ directory. A simple view might look something like this:
-
+```html
     <!-- View stored in `views/foo/foo.view.php` -->
 
     <html>
         <head>
-            <title><?php echo $this->title; ?></title>
+            <title>```php <?php echo $this->title; ?> ```</title>
         </head>
         <body>
         
-            <h1><?php echo $this->hello; ?></h1>
-            
+            <h1>```php <?php echo $this->hello; ?>  ```</h1>
+            ```php 
             <?php print_r($this->data); ?>
-            
+            ```
         </body>
     </html>
-
+```
 ## # Beech console
 > [Document PHP beech command line interface (CLI)](https://github.com/bombkiml/beech-cli)
 
