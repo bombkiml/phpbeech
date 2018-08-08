@@ -1,9 +1,8 @@
 [![N|Solid](https://image.ibb.co/gfbtQe/beech_LTSx1.png)](https://github.com/bombkiml/phpbeech)
-# PHP Beech framework
+# PHP Beech framework (LTS)
 ##### #Make it by yourself
 #
-#
-## # Server Requirements
+## # Environment Requirements
     PHP >= 5.3.0
 #
 ## # Installing Beech
@@ -15,7 +14,9 @@
 #
 ## # Development
 > Want to contribute or join for Great Job!. You can contact to me via
-E-mail nattapat.jquery@gmail.com or Facebook : [bombkiml](https://www.facebook.com/bombkiml)
+  - GitHub: [bombkiml/phpbeech - issues](https://github.com/bombkiml/phpbeech/issues)
+  - E-mail: nattapat.jquery@gmail.com 
+  - Facebook: [https://www.facebook.com/bombkiml](https://www.facebook.com/bombkiml)
 #
 ## # License
 > PHP Beech framework is open-sourced software licensed under the [MIT license.](https://opensource.org/licenses/MIT)
