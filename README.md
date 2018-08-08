@@ -21,10 +21,7 @@ you may use the `` $ beech serve `` command. This command will start a developme
     
 ## # Defining Controllers
 > Below is an example of a basic controller class. Note that the controller extends the base controller class. 
-
-Controller are stored in the modules/controllers/ directory. A simple controller might look something like this:
-
-    The Controller stored in `modules/controllers/fooController.php`
+Controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/fooController.php ``` might look something like this:
    
 ```php
     <?php
@@ -70,10 +67,7 @@ Controller are stored in the modules/controllers/ directory. A simple controller
 ```
 ## # Creating Views
 > Below is an example of a basic views contain the HTML served by your application and separate your controller. 
-
-Views are stored in the views/ directory. A simple view might look something like this:
-
-    The View stored in `views/foo/foo.view.php`
+Views are stored in the views/ directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
     
 ```html
     <html>
@@ -92,10 +86,7 @@ Views are stored in the views/ directory. A simple view might look something lik
 
 ## # Defining Models
 Below is an example of a basic create an model class. Note that the model extends the base model class. 
-
-Model are stored in the modules/models/ directory. A simple model might look something like this:
-
-    The Model stored in `modules/models/Foo.php`
+Model are stored in the modules/models/ directory. A simple model ``` modules/models/Foo.php ``` might look something like this:
 
 ```php
     <?php 
