@@ -15,8 +15,8 @@ The Beech use ``` composer ``` to manage its dependencies. So, before using ``` 
 
 #
 ### # Local development server
-If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, 
-you may use the `` $ beech serve `` command. This command will start a development server at `` http://localhost:8000: ``
+If you have PHP installed locally and you would like to use PHP's built-in development server to your application, 
+You may use the `` serve `` command. This command will start a development server at [`` http://localhost:8000 ``](http://localhost:8000)
 
     $ php beech serve
 
