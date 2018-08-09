@@ -22,7 +22,7 @@ You may use the `` serve `` command. This command will start a development serve
 
 #
 ### # Defining Controllers
-Below is an example of a basic controller class. Note that the controller extends the base controller class. 
+Below is an example of a basic controller class. **Note that** the `` controller `` extends the `` base controller `` class. 
 Controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/foo/fooController.php ``` might look something like this:
 ```php
     <?php
