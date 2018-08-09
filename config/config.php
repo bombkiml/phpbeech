@@ -10,7 +10,7 @@ define("PJ_NAME", "phpbeech");
  * Host name config ** default "http://localhost"
  * 
  */
-define("HOST_NAME", "http://localhost:8071");
+define("HOST_NAME", "http://localhost:8000");
 
 /**
  * BASE URL 
@@ -31,7 +31,7 @@ define("IMG", BASE_URL . "public/images/");
 define("DEFAULT_CRL", "welcome");
 
 /**
- * mysql database config
+ * MySQSL database config
  * 
  */
 define("DB_HOST", "localhost");
