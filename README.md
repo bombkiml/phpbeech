@@ -10,7 +10,6 @@
 #
 ### # Installing Beech
 Beech use Composer to manage its dependencies. So, before using Beech, make sure you have [Composer](https://getcomposer.org/) installed on your machine.
-> Download the Beech installer using Composer.
 
     $ composer create-project bombkiml/phpbeech {yourProjectName}
 
@@ -130,17 +129,17 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
 The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application.
 #
 ### # Retrieving Results
-You may retrieving all data by use the method preparing by 3 step like this:
+You may use the ``` prepare ``` method on the ```php $this->db ``` facade to begin a query. The ``` prepare ``` method returns a object query builder instance for the given table, allowing you to using sql statement for query by the ``` execute ``` method then finally get the results using the ``` fetch ``` method. So, 3 step easy usage you may retrieving results by use the methods like this:
 
-> One: Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
+**One:** Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
 ```php
     $foo = $this->db->prepare("SELECT * FROM foo");
 ```
-> Two: Execute statement, After specify statement you must execute your sql statement by using object ``` $foo ``` as above:
+**Two:** Execute statement, After specify statement you must execute your sql statement by using object ``` $foo ``` as above:
 ```php
     $foo->execute();
 ```
-> Finalize: Response data, Response data using by old object ``` $foo ``` for return your result data. So, Have a response are available for using:
+**Finalize:** Response data, Response data using by old object ``` $foo ``` for return your result data. So, Have a response are available for using:
 ```php
     $foo->fetch_all();
     // result: array
