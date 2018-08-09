@@ -3,26 +3,26 @@
 
 [![N|Solid](https://image.ibb.co/gfbtQe/beech_LTSx1.png)](https://github.com/bombkiml/phpbeech)
 
-## # Environment Requirements
+### # Environment Requirements
 
     PHP >= 5.3.0
 
 #
-## # Installing Beech
+### # Installing Beech
 Beech use Composer to manage its dependencies. So, before using Beech, make sure you have [Composer](https://getcomposer.org/) installed on your machine.
 > Download the Beech installer using Composer.
 
     $ composer create-project bombkiml/phpbeech {yourProjectName}
 
 #
-## # Local development server
+### # Local development server
 If you have PHP installed locally and you would like to use PHP's built-in development server to serve your application, 
 you may use the `` $ beech serve `` command. This command will start a development server at `` http://localhost:8000: ``
 
     $ php beech serve
 
 #
-## # Defining Controllers
+### # Defining Controllers
 Below is an example of a basic controller class. Note that the controller extends the base controller class. 
 Controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/fooController.php ``` might look something like this:
    
@@ -69,7 +69,7 @@ Controller are stored in the modules/controllers/ directory. A simple controller
     }
 ```
 #
-## # Creating Views
+### # Creating Views
 Below is an example of a basic views contain the HTML served by your application and separate your controller. 
 Views are stored in the views/ directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
     
@@ -88,7 +88,7 @@ Views are stored in the views/ directory. A simple view ``` views/foo/foo.view.p
     </html>
 ```
 #
-## # Defining Models
+### # Defining Models
 Below is an example of a basic create an model class. Note that the model extends the base model class. 
 Model are stored in the modules/models/ directory. A simple model ``` modules/models/Foo.php ``` might look something like this:
 
@@ -126,10 +126,10 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
     }
 ```
 #
-## # Database
+### # Database
 The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application.
 #
-#### # Retrieving Results
+### # Retrieving Results
 You may retrieving all data by use the method preparing by 3 step like this:
 
 > One: Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
@@ -181,14 +181,14 @@ The query builder may also be used to ``` delete ``` records from the table via 
     $this->db->delete("foo", array("id" => 1));
 ```
 #
-## # Beech-cli console
+### # Beech-cli console
 [Document PHP beech command line interface (CLI)](https://github.com/bombkiml/beech-cli)
 #
-## # Development
+### # Development
 Want to contribute or join for Great Job!. You can contact to me via
   - GitHub: [bombkiml/phpbeech - issues](https://github.com/bombkiml/phpbeech/issues)
   - E-mail: nattapat.jquery@gmail.com 
   - Facebook: [https://www.facebook.com/bombkiml](https://www.facebook.com/bombkiml)
 #
-## # License
+### # License
 PHP Beech framework is open-sourced software licensed under the [MIT license.](https://opensource.org/licenses/MIT)
