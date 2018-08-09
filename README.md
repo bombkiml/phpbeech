@@ -9,7 +9,7 @@
 
 #
 ### # Installing Beech
-Beech use Composer to manage its dependencies. So, before using Beech, make sure you have [Composer](https://getcomposer.org/) installed on your machine.
+Beech use ``` composer ``` to manage its dependencies. So, before using ``` Beech ``` make sure you have [Composer](https://getcomposer.org/) installed on your machine.
 
     $ composer create-project bombkiml/phpbeech {yourProjectName}
 
@@ -44,7 +44,7 @@ Controller are stored in the modules/controllers/ directory. A simple controller
 ```
 #
 ### # Passing data to views
-You may use the ```php $this->view->{yourVariable} ``` and assign data this one for passing the data to ``` views ```. A simple passing the data might look something like this:
+You may use the `` $this->view->{yourVariable} `` and assign data this one for passing the data to ``` views ```. A simple passing the data might look something like this:
 ```php
     <?php
 
@@ -122,8 +122,8 @@ You may use the `$this` for accessing the data passed to views. A simple accessi
 ```
 #
 ### # Defining Models
-Below is an example of a basic create an ``` model ``` class. Note that the model extends the base model class. 
-The ``` model ``` are stored in the modules/models/ directory. A simple model ``` modules/models/Foo.php ``` might look something like this:
+Below is an example of a basic create an ``` model ``` class. **Note that** the `` model `` extends the `` base model `` class. 
+The ``` model ``` are stored in the `` modules/models/ `` directory. A simple model `` modules/models/Foo.php `` might look something like this:
 
 ```php
     <?php 
