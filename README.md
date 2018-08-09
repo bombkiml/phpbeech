@@ -193,8 +193,7 @@ You may use the ``` prepare ``` method on the ```php $this->db ``` facade to beg
     // result: int
 ```
 
-
-:grey_question: Tips: You can show your sql statements before execute for checking is correct!: ``` $foo->show(); ``` |
+:grey_question: Tips: You can show your sql statements before execute: ``` $foo->show(); ``` |
 ------------ |
 
 
