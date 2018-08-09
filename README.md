@@ -8,7 +8,7 @@
     PHP >= 5.3.0
 
 ## # Installing Beech
-> Beech use Composer to manage its dependencies. So, before using Beech, make sure you have [Composer](https://getcomposer.org/) installed on your machine.
+Beech use Composer to manage its dependencies. So, before using Beech, make sure you have [Composer](https://getcomposer.org/) installed on your machine.
 > Download the Beech installer using Composer.
 
     $ composer create-project bombkiml/phpbeech {yourProjectName}
@@ -20,7 +20,7 @@ you may use the `` $ beech serve `` command. This command will start a developme
     $ php beech serve
     
 ## # Defining Controllers
-> Below is an example of a basic controller class. Note that the controller extends the base controller class. 
+Below is an example of a basic controller class. Note that the controller extends the base controller class. 
 Controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/fooController.php ``` might look something like this:
    
 ```php
@@ -66,7 +66,7 @@ Controller are stored in the modules/controllers/ directory. A simple controller
     }
 ```
 ## # Creating Views
-> Below is an example of a basic views contain the HTML served by your application and separate your controller. 
+Below is an example of a basic views contain the HTML served by your application and separate your controller. 
 Views are stored in the views/ directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
     
 ```html
@@ -122,11 +122,11 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
     }
 ```
 ## # Database
-> The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application.
+The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application.
 
 #### # Retrieving Results
-> You may retrieving all data by use the method preparing by 3 step like this:
->
+You may retrieving all data by use the method preparing by 3 step like this:
+
 > One: Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
 ```php
     $foo = $this->db->prepare("SELECT * FROM foo");
@@ -155,16 +155,25 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
 
 :grey_question: Tips: You can show your sql statement before execute for checking is correct!: ``` $foo->show(); ``` |
 ------------ |
-
-
-
-
+#
+#
 #### # Inserts
-The query builder also provides an insert method for inserting records into the database table. The insert method accepts an array of column names and values: 
+The query builder also provides an ``` insert ``` method for inserting records into the database table. The insert method accepts an array of column names and values: 
 ```php
-
+    $this->db->insert("foo", array("id" => "1", "name" => "john"));
 ```
-
+#
+### # Updates
+The query builder can also update existing records using the ``` update ``` method. The ``` update ``` method accepts an array of column and new value pairs containing the columns to be updated. You may constrain the update query using where clauses:
+```php
+    $this->db->update("foo", array("name" => "john smith"), array("id" => 1));
+```
+#
+### # Deletes
+The query builder may also be used to ``` delete ``` records from the table via the delete method. You may constrain the ``` delete ``` query using where clauses:
+```php
+    $this->db->delete("foo", array("id" => 1));
+```
 
 ## # Beech-cli console
 > [Document PHP beech command line interface (CLI)](https://github.com/bombkiml/beech-cli)
