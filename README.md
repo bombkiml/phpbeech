@@ -79,7 +79,7 @@ You may use the `` $this->view->{yourVariable} `` and assign data this one for p
             this->view->data   = [];
             
             // Return response view
-            return $this->view->render('foo/foo.view');
+            return $this->view->render("foo/foo.view");
             
         }
         
@@ -91,7 +91,9 @@ Below is an simple of a basic views contain the HTML served, The ``` views ``` a
 ```html
     <html>
         <head>
+    
             <title>Document</title>
+    
         </head>
         <body>
             
@@ -106,8 +108,10 @@ You may use the `$this` for accessing the data passed to views. A simple accessi
 ```html
     <html>
         <head>
+    
             <!-- Accessing the data passed of @var title -->
             <title><?php echo $this->title; ?></title>
+    
         </head>
         <body>
     
