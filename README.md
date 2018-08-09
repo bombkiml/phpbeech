@@ -43,8 +43,8 @@ Controller are stored in the modules/controllers/ directory. A simple controller
     }
 ```
 #
-##### # Passing data to views
-You may use the `$this->view->{yourVariable}` and assign data this one for passing the data to ``` views ```. A simple passing the data might look something like this:
+### # Passing data to views
+You may use the ```php $this->view->{yourVariable} ``` and assign data this one for passing the data to ``` views ```. A simple passing the data might look something like this:
 ```php
     <?php
 
@@ -63,7 +63,7 @@ You may use the `$this->view->{yourVariable}` and assign data this one for passi
         }
         
         /**
-         * Simple passing the data to `foo.view`
+         * Simple passing the data to `views/foo/foo.view.php`
          * 
          * @var title
          * @var hello
@@ -87,7 +87,7 @@ You may use the `$this->view->{yourVariable}` and assign data this one for passi
 ```
 #
 ### # Creating Views
-Below is an simple of a basic views contain the HTML served, The views are stored in the ```` views/ ``` directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
+Below is an simple of a basic views contain the HTML served, The ``` views ``` are stored in the ``` views/ ``` directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
 ```html
     <html>
         <head>
@@ -101,7 +101,7 @@ Below is an simple of a basic views contain the HTML served, The views are store
     </html>
 ```
 #
-##### # Accessing the data passed
+### # Accessing the data passed
 You may use the `$this` for accessing the data passed to views. A simple accessing the data passed might look something like this:
 ```html
     <html>
@@ -122,8 +122,8 @@ You may use the `$this` for accessing the data passed to views. A simple accessi
 ```
 #
 ### # Defining Models
-Below is an example of a basic create an model class. Note that the model extends the base model class. 
-Model are stored in the modules/models/ directory. A simple model ``` modules/models/Foo.php ``` might look something like this:
+Below is an example of a basic create an ``` model ``` class. Note that the model extends the base model class. 
+The ``` model ``` are stored in the modules/models/ directory. A simple model ``` modules/models/Foo.php ``` might look something like this:
 
 ```php
     <?php 
