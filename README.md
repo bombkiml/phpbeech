@@ -23,15 +23,37 @@ you may use the `` $ beech serve `` command. This command will start a developme
 #
 ### # Defining Controllers
 Below is an example of a basic controller class. Note that the controller extends the base controller class. 
-Controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/fooController.php ``` might look something like this:
-   
+Controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/foo/fooController.php ``` might look something like this:
 ```php
     <?php
 
     class FooController extends Controller {
     
         /**
-         * [Rule] Consturctor class it's call __construct of controller class
+         * @Rule: consturctor class it's call __construct of parent class
+         *
+         * Call parent class
+         *
+         */
+        public function __construct() {
+        
+            parent::__construct();
+            
+        }
+    }
+```
+#
+##### # Passing data to views
+You may use the `$this->view->{yourVariable}` and assign data this one for passing the data to ``` views ```. A simple passing the data might look something like this:
+```php
+    <?php
+
+    class FooController extends Controller {
+    
+        /**
+         * @Rule: consturctor class it's call __construct of parent class
+         *
+         * Call parent class
          *
          */
         public function __construct() {
@@ -41,27 +63,23 @@ Controller are stored in the modules/controllers/ directory. A simple controller
         }
         
         /**
-         * Show the foo.view data
+         * Simple passing the data to `foo.view`
+         * 
+         * @var title
+         * @var hello
+         * @var data
          *
-         * @param  int  $id
-         * @return Response
+         * @return Response view
          */
         public function foo() {
         
-            /**
-             * Prepare variable(s) for send to view
-             *
-             * @title Text
-             * @hello Text
-             * @data Array
-             *
-             */
+            // Passing the data to view
             $this->view->title = "foo page";
             $this->view->hello = "Hello foo.";
             this->view->data   = [];
             
-            // response view
-            $this->view->render('foo/foo.view');
+            // Return response view
+            return $this->view->render('foo/foo.view');
             
         }
         
@@ -69,18 +87,34 @@ Controller are stored in the modules/controllers/ directory. A simple controller
 ```
 #
 ### # Creating Views
-Below is an example of a basic views contain the HTML served by your application and separate your controller. 
-Views are stored in the views/ directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
-    
+Below is an simple of a basic views contain the HTML served, The views are stored in the ```` views/ ``` directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
 ```html
     <html>
         <head>
+            <title>Document</title>
+        </head>
+        <body>
+            
+            <h1>Hello world</h1>
+    
+        </body>
+    </html>
+```
+#
+##### # Accessing the data passed
+You may use the `$this` for accessing the data passed to views. A simple accessing the data passed might look something like this:
+```html
+    <html>
+        <head>
+            <!-- Accessing the data passed of @var title -->
             <title><?php echo $this->title; ?></title>
         </head>
         <body>
-        
-            <h1><?php echo $this->hello; ?></h1>
     
+            <!-- Accessing the data passed of @var hello -->
+            <h1><?php echo $this->hello; ?></h1>
+            
+            <!-- Accessing the data passed of @var data -->
             <?php print_r($this->data); ?>
     
         </body>
@@ -97,7 +131,9 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
     class Foo extends Model {
         
         /**
-         * [Rule] Consturctor class it's call __construct of model class
+         * @Rule: consturctor class it's call __construct of parent class
+         *
+         * Call parent class
          *
          */
         public function __construct() {
@@ -107,19 +143,19 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
         }
 
         /**
-         * For example method using MySQL get data
+         * Simple method using MySQL get data
          *
          */
-         public function getFruits() {
+         public function getFoo() {
             
-            // $this->db is extends from Model
-            $sth = $this->db->prepare("SELECT * FROM fruits");
+            // Preparing sql statements
+            $foo = $this->db->prepare("SELECT * FROM fruits");
             
-            // execute statement
-            $sth->execute();
+            // Execute statements
+            $foo->execute();
             
-            // response rows
-            return $sth->fetch_all();
+            // Return response rows
+            return $foo->fetch_all();
             
          }
     }
@@ -129,13 +165,13 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
 The Beech database (MySQL supported) using by ``` $this->db ``` it's query builder provides a convenient, fluent interface to creating and running database queries. It can be used to perform most database operations in your application.
 #
 ### # Retrieving Results
-You may use the ``` prepare ``` method on the ```php $this->db ``` facade to begin a query. The ``` prepare ``` method returns a object query builder instance for the given table, allowing you to using sql statement for query by the ``` execute ``` method then finally get the results using the ``` fetch ``` method. So, 3 step easy usage you may retrieving results by use the methods like this:
+You may use the ``` prepare ``` method on the ```php $this->db ``` facade to begin a query. The ``` prepare ``` method returns a object query builder instance for the given table, allowing you to using sql statements for query by the ``` execute ``` method then finally get the results using the ``` fetch ``` method. So, 3 step easy usage you may retrieving results by use the methods like this:
 
-**One:** Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
+**One:** Specify statements, First you must specify your sql statements for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
 ```php
     $foo = $this->db->prepare("SELECT * FROM foo");
 ```
-**Two:** Execute statement, After specify statement you must execute your sql statement by using object ``` $foo ``` as above:
+**Two:** Execute statements, After specify statements you must execute your sql statements by using object ``` $foo ``` as above:
 ```php
     $foo->execute();
 ```
@@ -158,7 +194,7 @@ You may use the ``` prepare ``` method on the ```php $this->db ``` facade to beg
 ```
 
 
-:grey_question: Tips: You can show your sql statement before execute for checking is correct!: ``` $foo->show(); ``` |
+:grey_question: Tips: You can show your sql statements before execute for checking is correct!: ``` $foo->show(); ``` |
 ------------ |
 
 
