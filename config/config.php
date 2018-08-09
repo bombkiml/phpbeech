@@ -19,12 +19,6 @@ define("HOST_NAME", "http://localhost:8000");
 define("BASE_URL", HOST_NAME ."/". PJ_NAME ."/");
 
 /**
- * Image path config
- * 
- */
-define("IMG", BASE_URL . "public/images/");
-
-/**
  * Default controller config 
  *
  */
