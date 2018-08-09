@@ -129,32 +129,41 @@ Model are stored in the modules/models/ directory. A simple model ``` modules/mo
 >
 > One: Specify statement, First you must specify your sql statement for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
 ```php
-    $sth = $this->db->prepare("SELECT * FROM foo");
+    $foo = $this->db->prepare("SELECT * FROM foo");
 ```
-> Two: Execute statement, After specify statement you must execute your sql statement by using object ``` $sth ``` as above:
+> Two: Execute statement, After specify statement you must execute your sql statement by using object ``` $foo ``` as above:
 ```php
-    $sth->execute();
+    $foo->execute();
 ```
-> Finalize: Response data, Response data using by old object ``` $sth ``` for return your result data. So, Have a response are available for using:
+> Finalize: Response data, Response data using by old object ``` $foo ``` for return your result data. So, Have a response are available for using:
 ```php
-        
-    $sth->fetch_all();
+    $foo->fetch_all();
     // result: array
     
-    $sth->fetch_assoc();
+    $foo->fetch_assoc();
     // result: array
     
-    $sth->fetch_array();
+    $foo->fetch_array();
     // result: array
     
-    $sth->fetch_object();
+    $foo->fetch_object();
     // result: object
     
-    $sth->num_rows();
+    $foo->num_rows();
     // result: int
-
 ```
 
+:grey_question: Tips: You can show your sql statement before execute for checking is correct!: ``` $foo->show(); ``` |
+------------ |
+
+
+
+
+#### # Inserts
+The query builder also provides an insert method for inserting records into the database table. The insert method accepts an array of column names and values: 
+```php
+
+```
 
 
 ## # Beech-cli console
