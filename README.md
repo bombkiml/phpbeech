@@ -175,7 +175,7 @@ You may use the ``` prepare ``` method on the ```php $this->db ``` facade to beg
 ```php
     $foo->execute();
 ```
-**Finalize:** Response data, Response data using by old object ``` $foo ``` for return your result data. So, Have a response are available for using:
+**Finalize:** Response data, Response data using by object ``` $foo ``` for return your result data. So, Have a response are available for using:
 ```php
     $foo->fetch_all();
     // result: array
