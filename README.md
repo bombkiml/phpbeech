@@ -76,7 +76,7 @@ You may use the `` $this->view->{yourVariable} `` and assign data this one for p
             // Passing the data to view
             $this->view->title = "foo page";
             $this->view->hello = "Hello foo.";
-            this->view->data   = [];
+            $this->view->data   = [];
             
             // Return response view
             return $this->view->render("foo/foo.view");
