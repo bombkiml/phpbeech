@@ -52,6 +52,7 @@
                     <img src='https://image.ibb.co/b7zQMK/beech_256.png' width='152' />
                     <h4>Welcome to PHP beech framework - alpha</h3>
                     <i>#Make it by yourself</i>
+                    <h6><a href="https://github.com/bombkiml/phpbeech#php-beech-framework-lts" target="_blank">Documentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/bombkiml/beech-cli#beech-command-line-interface-cli" target="_blank">Using with Beech CLI</a></h6>
                 </div>
             </div>
         </div>
