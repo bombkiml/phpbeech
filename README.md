@@ -9,7 +9,7 @@
 ### # Installing Beech
 The Beech use ``` composer ``` to manage its dependencies. So, before using ``` Beech ``` make sure you have [Composer](https://getcomposer.org/) installed on your machine.
 
-    $ composer create-project bombkiml/phpbeech {yourProjectName}
+    $ composer create-project bombkiml/phpbeech hello-world
 
 #
 ### # Local development server
