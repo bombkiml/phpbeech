@@ -217,7 +217,7 @@ The query builder may also be used to ``` delete ``` records from the table via 
     $this->db->delete("fruits", array("id" => 1));
 ```
 #
-### # Beech-cli console
+### # Using with ``beech-cli`` command (recommended)
 [Document PHP beech command line interface (CLI)](https://github.com/bombkiml/beech-cli)
 #
 ### # Development
