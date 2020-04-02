@@ -1,4 +1,6 @@
 # PHP Beech framework (LTS)
+[![beech-api release](https://img.shields.io/github/v/release/bombkiml/phpbeech)](https://github.com/bombkiml/phpbeech/releases/)
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://github.com/bombkiml/beech-api/blob/master/README.md)
 ##### #Make it by yourself
 [![N|Solid](https://image.ibb.co/gfbtQe/beech_LTSx1.png)](https://github.com/bombkiml/phpbeech)
 ### # Environment Requirements
