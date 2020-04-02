@@ -1,8 +1,6 @@
 # PHP Beech framework (LTS)
 ##### #Make it by yourself
-
 [![N|Solid](https://image.ibb.co/gfbtQe/beech_LTSx1.png)](https://github.com/bombkiml/phpbeech)
-
 ### # Environment Requirements
 
     PHP >= 7.1.11
@@ -11,7 +9,7 @@
 ### # Installing Beech
 The Beech use ``` composer ``` to manage its dependencies. So, before using ``` Beech ``` make sure you have [Composer](https://getcomposer.org/) installed on your machine.
 
-    $ composer create-project bombkiml/phpbeech hello-world
+    $ composer create-project bombkiml/phpbeech {yourProjectName}
 
 #
 ### # Local development server
@@ -23,11 +21,11 @@ You may use the `` serve `` command. This command will start a development serve
 #
 ### # Defining Controllers
 Below is an example of a basic controller class. **Note that** the `` controller `` extends the `` base controller `` class. 
-Controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/foo/fooController.php ``` might look something like this:
+The controller are stored in the modules/controllers/ directory. A simple controller ``` modules/controllers/fruits/fruitsController.php ``` might look something like this:
 ```php
     <?php
 
-    class FooController extends Controller {
+    class FruitsController extends Controller {
     
         /**
          * @Rule: consturctor class it's call __construct of parent class
@@ -44,11 +42,11 @@ Controller are stored in the modules/controllers/ directory. A simple controller
 ```
 #
 ### # Passing data to views
-You may use the `` $this->view->{yourVariable} `` and assign data this one for passing the data to ``` views ```. A simple passing the data might look something like this:
+You may use the `` $this->view->yourVariable `` and assign data this one for passing the data to ``` views ```. A simple passing the data might look something like this:
 ```php
     <?php
 
-    class FooController extends Controller {
+    class FruitsController extends Controller {
     
         /**
          * @Rule: consturctor class it's call __construct of parent class
@@ -63,7 +61,7 @@ You may use the `` $this->view->{yourVariable} `` and assign data this one for p
         }
         
         /**
-         * Simple passing the data to `views/foo/foo.view.php`
+         * Simple passing the data to `views/fruits/fruits.view.php`
          * 
          * @var title
          * @var hello
@@ -71,15 +69,15 @@ You may use the `` $this->view->{yourVariable} `` and assign data this one for p
          *
          * @return Response view
          */
-        public function foo() {
+        public function fruits() {
         
             // Passing the data to view
-            $this->view->title = "foo page";
-            $this->view->hello = "Hello foo.";
+            $this->view->title = "fruits page";
+            $this->view->sayHello = "Hello fruits";
             $this->view->data  = [];
             
             // Return response view
-            return $this->view->render("foo/foo.view");
+            return $this->view->render("fruits/fruits.view");
             
         }
         
@@ -87,12 +85,12 @@ You may use the `` $this->view->{yourVariable} `` and assign data this one for p
 ```
 #
 ### # Creating Views
-Below is an simple of a basic views contain the HTML served, The ``` views ``` are stored in the ``` views/ ``` directory. A simple view ``` views/foo/foo.view.php ``` might look something like this:
+Below is an simple of a basic views contain the HTML served, The ``` views ``` are stored in the ``` views/ ``` directory. A simple view ``` views/fruits/fruits.view.php ``` might look something like this:
 ```html
     <html>
         <head>
     
-            <title>Document</title>
+            <title>Title Name</title>
     
         </head>
         <body>
@@ -103,7 +101,7 @@ Below is an simple of a basic views contain the HTML served, The ``` views ``` a
     </html>
 ```
 #
-### # Accessing the data passed
+### # Accessing the data passed from controller
 You may use the `$this` for accessing the data passed to views. A simple accessing the data passed might look something like this:
 ```html
     <html>
@@ -115,8 +113,8 @@ You may use the `$this` for accessing the data passed to views. A simple accessi
         </head>
         <body>
     
-            <!-- Accessing the data passed of @var hello -->
-            <h1><?php echo $this->hello; ?></h1>
+            <!-- Accessing the data passed of @var sayHello -->
+            <h1><?php echo $this->sayHello; ?></h1>
             
             <!-- Accessing the data passed of @var data -->
             <?php print_r($this->data); ?>
@@ -127,12 +125,12 @@ You may use the `$this` for accessing the data passed to views. A simple accessi
 #
 ### # Defining Models
 Below is an example of a basic create an ``` model ``` class. **Note that** the `` model `` extends the `` base model `` class. 
-The ``` model ``` are stored in the `` modules/models/ `` directory. A simple model `` modules/models/Foo.php `` might look something like this:
+The ``` model ``` are stored in the `` modules/models/ `` directory. A simple model `` modules/models/Fruits.php `` might look something like this:
 
 ```php
     <?php 
 
-    class Foo extends Model {
+    class Fruits extends Model {
         
         /**
          * @Rule: consturctor class it's call __construct of parent class
@@ -150,16 +148,16 @@ The ``` model ``` are stored in the `` modules/models/ `` directory. A simple mo
          * Simple method using MySQL get data
          *
          */
-         public function getFoo() {
+         public function getFruits() {
             
             // Preparing sql statements
-            $foo = $this->db->prepare("SELECT * FROM fruits");
+            $stmt = $this->db->prepare("SELECT * FROM fruits");
             
             // Execute statements
-            $foo->execute();
+            $stmt->execute();
             
             // Return response rows
-            return $foo->fetch_all();
+            return $stmt->fetch_all();
             
          }
     }
@@ -171,52 +169,52 @@ The Beech database (MySQL supported) using by ``` $this->db ``` it's query build
 ### # Retrieving Results
 You may use the ``` prepare ``` method on the ```php $this->db ``` facade to begin a query. The ``` prepare ``` method returns a object query builder instance for the given table, allowing you to using sql statements for query by the ``` execute ``` method then finally get the results using the ``` fetch ``` method. So, 3 step easy usage you may retrieving results by use the methods like this:
 
-**One:** Specify statements, First you must specify your sql statements for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
+- **One:** Specify statements, First you must specify your sql statements for get something by using ``` prepare() ``` Then prepare function will return new object for call next actions, So following basic for get data something like this:
 ```php
-    $foo = $this->db->prepare("SELECT * FROM foo");
+    $stmt = $this->db->prepare("SELECT * FROM fruits");
 ```
-**Two:** Execute statements, After specify statements you must execute your sql statements by using object ``` $foo ``` as above:
+- **Two:** Execute statements, After specify statements you must execute your sql statements by using object ``` $stmt ``` as above:
 ```php
-    $foo->execute();
+    $stmt->execute();
 ```
-**Finalize:** Response data, Response data using by object ``` $foo ``` for return your result data. So, Have a response are available for using:
+- **Finalize:** Response data, Response data using by object ``` $stmt ``` for return your result data. So, Have a response are available for using:
 ```php
-    $foo->fetch_all();
+    $stmt->fetch_all();
     // result: array
     
-    $foo->fetch_assoc();
+    $stmt->fetch_assoc();
     // result: array
     
-    $foo->fetch_array();
+    $stmt->fetch_array();
     // result: array
     
-    $foo->fetch_object();
+    $stmt->fetch_object();
     // result: object
     
-    $foo->num_rows();
+    $stmt->num_rows();
     // result: int
 ```
 
-:grey_question: Tips: You can show your sql statements before execute: ``` $foo->show(); ``` |
+:grey_question: Tips: You can show your sql statements before execute: ``` $stmt->show(); ``` |
 ------------ |
 
 
 ### # Inserts
 The query builder also provides an ``` insert ``` method for inserting records into the database table. The insert method accepts an array of column names and values: 
 ```php
-    $this->db->insert("foo", array("id" => "1", "name" => "john"));
+    $this->db->insert("fruits", array("id" => "1", "name" => "Banana"));
 ```
 #
 ### # Updates
 The query builder can also update existing records using the ``` update ``` method. The ``` update ``` method accepts an array of column and new value pairs containing the columns to be updated. You may constrain the update query using where clauses:
 ```php
-    $this->db->update("foo", array("name" => "john smith"), array("id" => 1));
+    $this->db->update("fruits", array("name" => "Cherry"), array("id" => 1));
 ```
 #
 ### # Deletes
 The query builder may also be used to ``` delete ``` records from the table via the delete method. You may constrain the ``` delete ``` query using where clauses:
 ```php
-    $this->db->delete("foo", array("id" => 1));
+    $this->db->delete("fruits", array("id" => 1));
 ```
 #
 ### # Beech-cli console
