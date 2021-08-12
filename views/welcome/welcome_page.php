@@ -49,7 +49,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title text-muted">
-                    <img src='https://image.ibb.co/b7zQMK/beech_256.png' width='152' />
+                    <img src='https://camo.githubusercontent.com/3ec1bd01649368036097c577e555c8a0331a8a571e5a12e10e2414bd6dd33ed3/68747470733a2f2f696d6167652e6962622e636f2f6766627451652f62656563685f4c545378312e706e67' width='450' />
                     <h4>Welcome to PHP beech framework - alpha</h3>
                     <i>#Make it by yourself</i>
                     <h6><a href="https://github.com/bombkiml/phpbeech#php-beech-framework-lts" target="_blank">Documentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/bombkiml/beech-cli#beech-command-line-interface-cli" target="_blank">Using with Beech CLI</a></h6>
