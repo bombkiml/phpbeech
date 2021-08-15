@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset='utf-8'/>
-	<link href='https://image.ibb.co/iqeBBK/beech_16.png' rel='shortcut icon'/>
+	<link href='https://avatars.githubusercontent.com/u/34172506?s=400&u=c8ffb658bef4cd44a3deac6eb5ee04defce0003a&v=4' rel='shortcut icon'/>
 	<title><?php echo @$this->title; ?></title>
 </head>
 <body>
@@ -24,10 +24,10 @@ ol{height: 6px;}
 .blue{color:blue;}
 .b{font-weight:bold}
 h3{height:6px;}
+.pointer{cursor: pointer;}
 </style>
 <div id='content'>
-    <h1><a href='https://github.com/bombkiml/phpbeech' target='_blank' title='PHP Beech Framework'><img src='https://image.ibb.co/gTcRdz/beech_64.png' width='64px' /> <label style='position:absolute;top:44px;margin-left:5px;'>PHP Beech framework</label></a></h1>
-	<div style='margin-left: 35px'><img src='https://image.ibb.co/b4jWdz/warning_32.png' width='55px' /></div>
+    <h1><a href='https://github.com/bombkiml/phpbeech/issues' target='_blank' title='PHP Beech Framework'><img src='https://camo.githubusercontent.com/3ec1bd01649368036097c577e555c8a0331a8a571e5a12e10e2414bd6dd33ed3/68747470733a2f2f696d6167652e6962622e636f2f6766627451652f62656563685f4c545378312e706e67' width='64px' /> <label style='position:absolute;top:44px;margin-left:5px;' class="pointer">PHP Beech framework</label></a></h1>
     <h2 id='red'>Oops! PHP Beech Framework is not supported !</h2>
     <h4>Please contact PHP beech framework support via </h4>
     <ul>
