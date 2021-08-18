@@ -19,7 +19,8 @@
     "require": {
         "php": ">=7.1.1",
         "bombkiml/beech-cli": "^2.0",
-        "twbs/bootstrap": "4.0.0-beta.2"
+        "components/font-awesome": "dev-master",
+        "twbs/bootstrap": "^5.1.0"
     },
     "config": {
         "preferred-install": "dist",

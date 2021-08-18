@@ -27,7 +27,7 @@ h3{height:6px;}
 .pointer{cursor: pointer;}
 </style>
 <div id='content'>
-    <h1><a href='https://github.com/bombkiml/phpbeech/issues' target='_blank' title='PHP Beech Framework'><img src='https://camo.githubusercontent.com/3ec1bd01649368036097c577e555c8a0331a8a571e5a12e10e2414bd6dd33ed3/68747470733a2f2f696d6167652e6962622e636f2f6766627451652f62656563685f4c545378312e706e67' width='64px' /> <label style='position:absolute;top:44px;margin-left:5px;' class="pointer">PHP Beech framework</label></a></h1>
+    <h1><a href='https://github.com/bombkiml/phpbeech/issues' target='_blank' title='PHP Beech Framework'><img src='<?php echo BASE_URL; ?>public/images/beech_128.png' width='64px' /> <label style='position:absolute;top:44px;margin-left:5px;' class="pointer">PHP Beech framework</label></a></h1>
 	<h2 id="red">Fatal error: Class not found !</h2>
     <h3 id='red'>*** Notice ***</h3>
     <?php $base = trim(BASE_URL, '/'); $base = explode('/', $base); $my_site = end($base); ?>        

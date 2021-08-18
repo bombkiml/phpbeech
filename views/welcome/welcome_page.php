@@ -1,61 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='<?php echo BASE_URL; ?>public/assets/images/beech_16.png' rel='shortcut icon'/>
-        <title><?php echo @$this->title; ?></title>
+<!doctype html>
+<html>
+	<head>
+	  <title><?php echo @$this->title; ?></title>
+    <link rel="shortcut icon" href="<?php echo BASE_URL; ?>public/images/beech_16.png">
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-height: 100vh;
+        font-family: Hack, monospace;
+      }
+      div {
+        color: #727272;
+        text-align: center;
+      }
+      label {
+        color: #ccc;
+        text-transform: uppercase;
+        transition: all 1s ease-in-out;
+        position: relative;
+      }
+      label::before {
+        content: attr(data-item);
+        transition: all 1s ease-in-out;
+        color: #78b86d;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 0;
+        overflow: hidden;
+      }
+      label:hover::before {
+        width: 100%;
+      }
+      footer {
+        position: absolute;
+        font-size: 12px;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        font-size: 14px;
+        background-color: #f1f1f1;
+        color: #000000;
+        text-align: center;
+      }
+      footer a {
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 1px solid;
+      }
+      footer a:hover {
+        border-bottom: 1px transparent;
+      }
+    </style>
+</head>
+<body>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+  <div class="flex-center position-ref full-height">
+      <div class="content">
+          <div class="title text-muted">
+              <h1 style="font-weight: bold; padding: 10px; color: #ccc !important">Welcome to PHP <label data-item='beech'>beech</label> framework</h1>
+              <div>
+                <i>#Make it by yourself</i>
+              </div>
+              <img src='<?php echo BASE_URL; ?>public/images/beech_LTSx2.png' width='390' />
+              <h3><a href="https://github.com/bombkiml/phpbeech#php-beech-framework-lts" target="_blank">Documentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/bombkiml/beech-cli#beech-command-line-interface-cli" target="_blank">Using with Beech CLI</a></h3>
+          </div>
+      </div>
+  </div>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 34px;
-                padding: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title text-muted">
-                    <img src='https://camo.githubusercontent.com/3ec1bd01649368036097c577e555c8a0331a8a571e5a12e10e2414bd6dd33ed3/68747470733a2f2f696d6167652e6962622e636f2f6766627451652f62656563685f4c545378312e706e67' width='450' />
-                    <img src='beech_16.png' width='450' />
-                    <h4>Welcome to PHP beech framework - alpha</h3>
-                    <i>#Make it by yourself</i>
-                    <h6><a href="https://github.com/bombkiml/phpbeech#php-beech-framework-lts" target="_blank">Documentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/bombkiml/beech-cli#beech-command-line-interface-cli" target="_blank">Using with Beech CLI</a></h6>
-                </div>
-            </div>
-        </div>
-    </body>
+  <footer>
+    <div class="footer-copyright text-center">&copy; Developed with ❤️</i> by
+      <a href="https://github.com/bombkiml/phpbeech" class="white-text" target="_blank">bombkiml</a>. <a href="https://github.com/bombkiml" target="_blank">Check my other repo. </a>
+    </div>
+  </footer>
+</body>
 </html>
