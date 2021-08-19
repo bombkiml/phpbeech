@@ -1,0 +1,1 @@
+/* Golbal custom js */

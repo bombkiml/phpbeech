@@ -5,8 +5,8 @@ class System {
 	private $_url = null;
 	private $_crl = null;
 	
-	public function __construct() {
-		$this->get_url();
+	public function __construct($development = false) {
+		$this->get_url($development);
 		if (empty($this->_url[0])) {
 			$this->default_crl();
 		} else {
@@ -15,10 +15,8 @@ class System {
 		}
 	}
 	
-	private function get_url() {
-    //echo "get dev: " . $_SERVER['argv'];
-
-		@$url = $_SERVER['REQUEST_URI']; // == PJ_NAME . 'Controller') ? $_GET['url'] : $_SERVER['REQUEST_URI'];
+	private function get_url($development) {
+		@$url = (@$development) ? $_SERVER['REQUEST_URI'] : $_GET['url'];
 		$url = trim($url, '/');
 		$url =  explode('/', $url);
 		$url[0] .= ($url[0]) ? 'Controller' : DEFAULT_CRL .'Controller';

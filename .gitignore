@@ -1,5 +1,5 @@
 .git/
-config/
+config*
 vendor/
 node_modules/
 composer.lock

@@ -8,8 +8,9 @@ class WelcomeController extends Controller {
     
     public function index() {
       $this->view->title = 'Welcome to Beech Framework';
-      $this->view->js = ["welcome/js/test"];
-      $this->view->render('welcome/welcome_page');
+      $this->view->js = ["welcome/js/welcome.js"];
+      $this->view->css = ["welcome/css/welcome.css"];
+      $this->view->template('welcome/welcome_page');
     }
     
     public function hello() {

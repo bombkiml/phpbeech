@@ -1,6 +1,6 @@
 #!/usr/bin/env php
-<?php 
+<?php
 
-if(file_exists(__DIR__.'.\vendor')) {
-    require __DIR__.'.\vendor\bombkiml\beech-cli\src\console.php';
+if (file_exists(__DIR__ . '.\vendor')) {
+    require __DIR__ . '.\vendor\bombkiml\beech-cli\src\console.php';
 }

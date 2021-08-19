@@ -30,7 +30,7 @@ h3{height:6px;}
 <div id='content'>
     
   <h1><a href='https://github.com/bombkiml/phpbeech/issues' target='_blank' title='PHP Beech Framework'><img src='<?php echo BASE_URL; ?>public/images/beech_128.png' width='64px' /> <label style='position:absolute;top:44px;margin-left:5px;' class="pointer">PHP Beech framework</label></a></h1>
-	<h2 id="red">Fatal: Method not found !</h2> <?php echo BASE_URL; ?>public/assets
+	<h2 id="red">Fatal: Method not found !</h2>
     <h3 id='red'>*** Notice ***</h3>
     <h3 id='green'>Check your method name <label id='red'><?php echo $this->method.'()'; ?></label> inside of the class "<?php echo $this->class; ?>"</h3>
     <br/><hr/>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 date_default_timezone_set('Asia/Bangkok');
 
@@ -8,9 +8,9 @@ date_default_timezone_set('Asia/Bangkok');
  */
 require 'config/config.php';
 require 'beech-framework/_beech.conf.php';
-function __autoload($class){
-    require INC.$class.EXT;
+function __autoload($class)
+{
+    require INC . $class . EXT;
 }
-
 // engine start
 new System();
