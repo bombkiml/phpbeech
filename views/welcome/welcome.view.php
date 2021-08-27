@@ -5,7 +5,7 @@
             <div>
               <i>#Make it by yourself</i>
             </div>
-            <img src='<?php echo BASE_URL; ?>public/images/beech_LTSx2.png' width='390' />
+            <img src='<?php echo $this->asset('images/beech_LTS.png'); ?>' width='390' />
             <h3><a href="https://github.com/bombkiml/phpbeech#php-beech-framework-lts" target="_blank">Documentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/bombkiml/beech-cli#beech-command-line-interface-cli" target="_blank">Using with Beech CLI</a></h3>
         </div>
     </div>

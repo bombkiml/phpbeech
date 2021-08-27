@@ -5,8 +5,8 @@ class System {
 	private $_url = null;
 	private $_crl = null;
 	
-	public function __construct($development = false) {
-		$this->get_url($development);
+	public function __construct() {
+		$this->get_url();
 		if (empty($this->_url[0])) {
 			$this->default_crl();
 		} else {
@@ -15,13 +15,19 @@ class System {
 		}
 	}
 	
-	private function get_url($development) {
-		@$url = (@$development) ? $_SERVER['REQUEST_URI'] : $_GET['url'];
-		$url = trim($url, '/');
-		$url =  explode('/', $url);
-		$url[0] .= ($url[0]) ? 'Controller' : DEFAULT_CRL .'Controller';
+	private function get_url() {
+		@$url = (@$_GET['url']) ? $_GET['url'] : $_SERVER['REQUEST_URI'];
+		$url = ltrim($url, '/');
+    $url =  explode('/', $url);
+    if (count($url) < 2) {
+      $url[0] .= ($url[0]) ? 'Controller' : DEFAULT_CRL .'Controller';
+    } else {
+      if (!$url[1]) {
+        array_shift($url);
+      }
+      $url[0] .= ($url[0]) ? 'Controller' : DEFAULT_CRL .'Controller';
+    }
 		$this->_url = $url;
-		
 		/**
 		 * @url[0] : class
 		 * @url[1] : method
@@ -44,70 +50,70 @@ class System {
 	}
 	
 	private function call_method() {
-        $url_nums = count($this->_url);
-        if ($url_nums > 12) {
-           $this->beech_error();
-        }
+    $url_nums = count($this->_url);
+    if ($url_nums > 12) {
+        $this->beech_error();
+    }
 		switch ($url_nums) {
-            case 12 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10], $this->_url[11]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10], $this->_url[11]));
-            break;
-            case 11 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10]));
-            break;
-            case 10 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9]));
-            break;
-            case 9 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8]));
-            break;
-            case 8 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7]));
-            break;
-            case 7 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6]));
-            break;
-            case 6 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5]));
-            break;
-            case 5 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4]));                        
-            break;
-            case 4 : 
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3]));
-            break;
+      case 12 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10], $this->_url[11]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10], $this->_url[11]));
+      break;
+      case 11 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9], $this->_url[10]));
+      break;
+      case 10 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8], $this->_url[9]));
+      break;
+      case 9 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7], $this->_url[8]));
+      break;
+      case 8 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6], $this->_url[7]));
+      break;
+      case 7 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5], $this->_url[6]));
+      break;
+      case 6 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4], $this->_url[5]));
+      break;
+      case 5 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3], $this->_url[4]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3], $this->_url[4]));                        
+      break;
+      case 4 : 
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}($this->_url[2], $this->_url[3]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2], $this->_url[3]));
+      break;
 			case 3 :
 				method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}($this->_url[2]):
-                    $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2]));
+          $this->_crl->{$this->_url[1]}($this->_url[2]):
+          $this->method_error($this->_url[0], $this->_url[1], array($this->_url[2]));
 			break;
 			case 2 :
-                // How to use function method_exists(obj_class, mehtod)
-                method_exists($this->_crl, $this->_url[1])?
-                    $this->_crl->{$this->_url[1]}():
-                    $this->method_error($this->_url[0], $this->_url[1]);
+        // How to use function method_exists(obj_class, mehtod)
+        method_exists($this->_crl, $this->_url[1])?
+          $this->_crl->{$this->_url[1]}():
+          $this->method_error($this->_url[0], $this->_url[1]);
 			break;
 			default :
 				$this->_crl->index();
-			break;		
+			break;
 		}
 	}
 	
@@ -125,7 +131,7 @@ class System {
 		exit;    
     }
     private function beech_error() {
-        require INC.'beech_error'.EXT;
+    require INC.'beech_error'.EXT;
 		$this->_crl = new Beech_error();
 		$this->_crl->beech_error();
 		exit;    

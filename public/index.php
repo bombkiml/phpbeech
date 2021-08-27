@@ -1,16 +1,32 @@
 <?php
 
+/**
+ * Beech - A PHP Framework For Web beech
+ *
+ * @package  phpbeech
+ * @author   bombkiml
+ * 
+ */
+
 date_default_timezone_set('Asia/Bangkok');
 
 /**
- * index file for start engine
+ * Index file for start engine
  *
  */
 require 'config/config.php';
 require 'beech-framework/_beech.conf.php';
-function __autoload($class)
-{
-    require INC . $class . EXT;
+
+/**
+ * Auto-load main class
+ * 
+ */
+function __autoload($class) {
+  require INC . $class . EXT;
 }
-// engine start System(Boolean true for development)
-new System(true);
+
+/**
+ * Engine start
+ * 
+ */
+new System();
