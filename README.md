@@ -200,6 +200,31 @@ You may use the ``` prepare ``` method on the ```php $this->db ``` facade to beg
 :grey_question: Tips: You can show your sql statements before execute: ``` $stmt->show(); ``` |
 ------------ |
 #
+### # Database transactions
+You may use the transaction method provided by ```$this->model``` facade to run a set of operations within a database transaction. If an exception is thrown within the transaction closure, the transaction will automatically be rolled back. If the closure executes successfully, the transaction will automatically be committed. You don't need to worry about manually rolling back or committing while using the transaction method:
+
+```php
+
+    // Init autocommit off
+    $this->db->autocommit();
+    
+    // update, delete some value
+    $this->db->update("fruits", array("name" => "Cherry"), array("id" => 1));
+    $this->db->delete("fruits", array("id" => 1));
+    
+    // commit transaction
+    if ($this->db->commit()) {    
+        
+        echo "Commit completed!";    
+        
+    } else {
+    
+        // Rollback transaction
+        $this->db->rollback();        
+        
+    }
+```
+#
 ### # Controller calling The Database
  - The ```model``` automatic connect when you make ```model``` under rules "same file name". So if you make Controller name is "```Fruits```" you must be make Model name is "```Fruits```" same.
 
