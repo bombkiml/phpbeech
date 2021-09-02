@@ -71,7 +71,7 @@ You may use the `` $this->view->yourVariable `` and assign data this one for pas
          *
          * @return Response view
          */
-        public function fruits() {
+        public function index() {
         
             // Passing the data to view
             $this->view->title = "fruits page";
@@ -199,8 +199,39 @@ You may use the ``` prepare ``` method on the ```php $this->db ``` facade to beg
 
 :grey_question: Tips: You can show your sql statements before execute: ``` $stmt->show(); ``` |
 ------------ |
+#
+### # Controller calling The Database
+ - The ```model``` automatic connect when you make ```model``` under rules "same file name". So if you make Controller name is "```Fruits```" you must be make Model name is "```Fruits```" same.
+
+ - You may use the `$this->model` for calling all the methods in model. A simple calling the method might look something like this:
 
 
+```php
+    <?php
+
+    class FruitsController extends Controller {
+    
+        public function __construct() {        
+            parent::__construct();
+        }
+        
+        /**
+         * Simple calling the model `Fruits`
+         * 
+         */
+        public function index() {
+        
+            // Calling the method in model
+            $this->view->fruits = $this->model->getFruits(); // <---- Call method in Fruits model
+                        
+            // Return response view
+            return $this->view->render("fruits/fruits.view");
+            
+        }
+        
+    }
+```
+#
 ### # Inserts
 The query builder also provides an ``` insert ``` method for inserting records into the database table. The insert method accepts an array of column names and values: 
 ```php
