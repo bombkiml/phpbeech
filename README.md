@@ -206,7 +206,7 @@ You may use the transaction method provided by ```$this->model``` facade to run 
 ```php
 
     // Init autocommit off
-    $this->db->autocommit();
+    $this->db->transaction();
     
     // update, delete some value
     $this->db->update("fruits", array("name" => "Cherry"), array("id" => 1));
