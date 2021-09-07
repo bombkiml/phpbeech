@@ -53,7 +53,19 @@ class Database {
 		return $this->_query->fetch_object();
 	}
 
-  public function autocommit() {
+  public function tansaction(callable $cb) {
+    $this->_mysqli->autocommit(FALSE);
+    try {
+      $res = $cb($this);
+      //$this->_mysqli->commit();
+      return $res;
+    } catch (Throwable $ex) {
+      $this->_mysqli->rollback();
+      throw $ex;
+    }
+  }
+
+  public function transaction() {
     return $this->_mysqli->autocommit(FALSE);
   }
 
@@ -81,8 +93,9 @@ class Database {
 			return false;
 	}
 	
-	public function update($table, $rows, $where){ // function UPDATE		
-    $keys = array_keys($rows); 
+	public function update($table, $rows, $whereArr){ // function UPDATE		
+    $keys = array_keys($rows);
+    $update = "";
     $a = count($keys);
     for($i = 0; $i < count($rows); $i++) {        
       if($rows[$keys[$i]]) {
@@ -90,12 +103,16 @@ class Database {
       } else {
         $update .= $keys[$i].'='.$rows[$keys[$i]];
       }
-
       if($i != count($rows)-1) {
         $update .= ',';
       }
     }
-			
+
+    $where = [];
+    foreach($whereArr as $key => $value) {
+      array_push($where, "$key='$value'");
+    }
+    $where = implode(' AND ', $where);
 		$sth = $this->prepare("UPDATE $table SET $update WHERE $where");
 		if($sth->execute())
 			return true;
@@ -103,28 +120,17 @@ class Database {
 			return false;
 	}
 	
-	public function delete($table, $where){ // function DELETE
+	public function delete($table, $whereArr){ // function DELETE
+    $where = [];
+    foreach($whereArr as $key => $value) {
+      array_push($where, "$key='$value'");
+    }
+    $where = implode(' AND ', $where);
 		$sth = $this->prepare("DELETE FROM $table WHERE $where");
 		if($sth->execute())
 			return true;
 		else
 			return false;
-	}
-	
-	public function last_row($table, $field){
-		$sth = $this->prepare("SELECT max($field) as id FROM $table");
-		$sth->execute();
-		while($r = $sth->fetch_assoc()) {
-			return $r['id'];
-		}
-	}
-
-	public function first_row($table, $field) {
-		$sth = $this->prepare("SELECT min($field) as id FROM $table");
-		$sth->execute();
-		while($r = $sth->fetch_assoc()){
-			return $r['id'];
-		}
 	}
 	
 }

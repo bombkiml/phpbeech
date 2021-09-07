@@ -17,6 +17,40 @@ class Welcome extends Model {
      * 
      */
     public function get() {
+      /* // Preparing sql statements
+      $stmt = $this->db->prepare("SELECT * FROM fruits");
+            
+      // Execute statements
+      $stmt->execute();
+      
+      // Return response rows
+      return $stmt->fetch_all(); */
+
+      /* $this->db->transaction();
+
+      $this->db->update('user', ['name' => 'bomb'], ['id' => 1]);
+      $this->db->update('user', ['name' => 'edd'], ['id' => 2, 'name' => 'xxx']);
+
+      // commit transaction
+      if ($this->db->commit()) {        
+        echo "Commit completed!";
+      } else {    
+        // Rollback transaction
+        $this->db->rollback();        
+      } */
+
+      
+
+
+      $this->db->tansaction(function($query) {
+
+        $query->update('user', ['name' => 'bomb'], ['id' => 1]);
+        $query->update('user', ['name' => 'edd'], ['id' => 2, 'namex' => 'xxx']);
+
+      });
+
+
+
 
     }
 
